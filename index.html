@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Academic Warriors - Study Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .welcome {
+            background-color: #e0f7fa;
+            padding: 20px;
+            margin: 20px 0; /* Added margin to space it from the notification */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgb(119, 0, 0);
+            font-size: 1.2rem;
+            color: #333;
+            text-align: center; /* Center text horizontally */
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Center text horizontally */
+            align-items: center; /* Center text vertically */
+            min-height: 200px; /* Set a minimum height to help with vertical centering */
+        }
+
+        .datetime {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .module {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px #000;
+            transition: transform 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        .module h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .module p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .docsend-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .docsend-btn:hover {
+            background-color: #555;
+        }
+
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 33px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;    /* Center align items */
+}
+
+footer nav {
+    margin-top: 29px;       /* Add some space above the nav links */
+}
+
+footer nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;         /* Add horizontal spacing between links */
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Media query for responsiveness */
+@media (max-width: 768px) {
+    footer nav {
+        flex-direction: column; /* Stack links vertically on smaller screens */
+        align-items: center;     /* Center align items */
+    }
+
+    footer nav a {
+        margin: 5px 0;          /* Add vertical spacing between links */
+    }
+}
+
+
+        /* Notification Box Styles */
+        .notification {
+            background-color: #ce0404;
+            color: #000;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            animation: heartbeat 1.5s infinite, bounce 0.5s infinite alternate;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .welcome {
+                font-size: 1rem;
+                min-height: 150px; /* Adjusted minimum height */
+            }
+
+            .module h2 {
+                font-size: 1.5rem;
+            }
+
+            .module p {
+                font-size: 0.9rem;
+            }
+
+            .docsend-btn {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+
+            .notification {
+                font-size: 1rem;
+            }
+
+            .datetime {
+                font-size: 1.2rem; /* Smaller font for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .welcome {
+                font-size: 0.9rem;
+                min-height: 120px; /* Adjusted minimum height */
+            }
+
+            .module h2 {
+                font-size: 1.3rem;
+            }
+
+            .module p {
+                font-size: 0.8rem;
+            }
+
+            .docsend-btn {
+                font-size: 0.85rem;
+                padding: 7px 14px;
+            }
+
+            .notification {
+                font-size: 0.9rem;
+            }
+
+            .datetime {
+                font-size: 1rem; /* Smaller font for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Academic Warriors</h1>
+</header>
+
+    
+  <STRONG>     <div class="datetime" id="datetime">
+        <!-- Live date and time will be displayed here -->
+    </div> </STRONG>  
+    
+<div class="container">
+    <div class="welcome">
+        Welcome to Academic Warriors!<br><br>
+        Empower your academic journey with our unique study notes designed for warriors in the battle of knowledge. At Academic Warriors, we believe that effective studying is about more than just memorizing information—it's about understanding concepts and retaining knowledge for the long haul.<br><br>
+        Our notes are meticulously organized with clear headings to help you identify key topics, allowing you to focus on what matters most. Whether you're preparing for semester tests or striving for academic excellence, our resources will guide you through the toughest subjects and equip you with the tools you need to succeed.<br><br>
+        Join our community of learners and become a warrior in your academic pursuits!
+    </div>
+
+
+
+    <div class="notification">
+       "🔔 Additional notes for the upcoming exams, along with more modules, will be available by the end of next week."
+    </div>
+
+    <div class="module" id="bdo121">
+        <h2>BDO121 - Introduction to Industrial Psychology</h2>
+        <p>This module covers the fundamentals of industrial psychology, focusing on human behavior in the workplace, psychological assessment, and organizational development.</p>
+        <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access BDO121 Notes</a>
+    </div>
+
+    <div class="module" id="pto101">
+        <h2>PTO101 - Politics and International Relations</h2>
+        <p>This module examines organized political society at national and international levels, focusing on political concepts, state governance, and the impact of globalization. It addresses regime development, national sovereignty challenges, and transnational issues like the environment and human rights.</p>
+    </div>
+
+    <div class="module" id="ekn120">
+        <h2>EKN120 - Economics</h2>
+        <p>This module covers core economic principles, focusing on macroeconomic measurement in South Africa's private and public sectors. It includes topics like aggregate demand and supply, economic growth, unemployment, inflation, microeconomics of government, international trade, and South Africa's role in the global economy.</p>
+    </div>
+
+    <div class="module" id="inl120">
+        <h2>INL120 - Information Science</h2>
+        <p>This module delves into information systems, data management, and the role of information in society, preparing students for data-driven decision-making.</p>
+    </div>
+
+    <div class="module" id="inl140">
+        <h2>INL140 - Information Science</h2>
+        <p>A continuation of the INL120 module, this section focuses on advanced topics in information science, such as knowledge management and information architecture.</p>
+    </div>
+
+    <div class="module" id="pad122">
+        <h2>PAD 122 - Public Administration</h2>
+        <p>Public Administration introduces the constitutional principles of public administration, focusing on the South African governmental structure. It covers the roles, responsibilities, and authority of the executive, legislative, and judicial branches, as well as the functioning of the three tiers of government.</p>
+    </div>
+
+    <div class="module" id="eng120">
+        <h2>ENG 120 - English</h2>
+        <p>English introduces students to post-nineteenth-century literature through the study of various texts across genres, including poetry, drama, and prose, from Africa and around the world. With two discussion classes per week, the module aims to equip students with the background knowledge and analytical skills necessary for perceptively reading modern and contemporary literary works.</p>
+    </div>
+
+    <div class="module" id="krm120">
+        <h2>KRM 120 - Criminology</h2>
+        <p>Criminology covers Penology, focusing on key participants in the criminal justice system, and Crime Prevention and Control, addressing crime trends, criminal behavior theories, and prevention strategies.</p>
+    </div>
+
+    <div class="module" id="slk120">
+        <h2>SLK 120 - Psychology</h2>
+        <p>Psychology provides an introduction to the biological basis of human behavior, covering key concepts, terminology, and principles of biological psychology. It explores the interconnection of biological systems and subsystems, while also examining cognitive processes such as perception, memory, thinking, intelligence, and creativity.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Academic Warriors | All Rights Reserved</p>
+
+    <nav>
+<a href="Footer.html#about" style="color: white; margin-right: 15px;">About Us</a>
+<a href="Footer.html#terms" style="color: white; margin-right: 15px;">Terms of Service</a>
+<a href="Footer.html#policies" style="color: white; margin-right: 15px;">Privacy Policy</a>
+<a href="Footer.html#services" style="color: white; margin-right: 15px;">Products & Services</a>
+<a href="Footer.html#contact" style="color: white;">Contact Us</a>
+
+    </nav>
+
+</footer>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const options = { 
+            weekday: 'long', year: 'numeric', month: 'long', 
+            day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', 
+            hour12: false // Set to false for 24-hour format
+        };
+        const datetimeString = now.toLocaleDateString('en-US', options);
+        document.getElementById('datetime').textContent = datetimeString;
+    }
+
+    setInterval(updateDateTime, 1000); // Update every second
+    updateDateTime(); // Initial call to display immediately
+</script>
+
+</body>
+</html>
