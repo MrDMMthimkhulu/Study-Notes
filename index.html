@@ -92,23 +92,46 @@
             background-color: #555;
         }
 
-        footer {
-            background-color: #000000;
-            color: white;
-            text-align: center;
-            padding: 33px 0;
-            margin-top: 40px;
-        }
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 33px 0;
+    margin-top: 40px;
+}
 
-        footer nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;    /* Center align items */
+}
 
-        footer nav a:hover {
-            text-decoration: underline;
-        }
+footer nav {
+    margin-top: 29px;       /* Add some space above the nav links */
+}
+
+footer nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;         /* Add horizontal spacing between links */
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Media query for responsiveness */
+@media (max-width: 768px) {
+    footer nav {
+        flex-direction: column; /* Stack links vertically on smaller screens */
+        align-items: center;     /* Center align items */
+    }
+
+    footer nav a {
+        margin: 5px 0;          /* Add vertical spacing between links */
+    }
+}
+
 
         .notification {
             background-color: #ce0404;
@@ -320,12 +343,17 @@
 </div>
 
 <footer>
+    <p>&copy; 2024 Academic Warriors | All Rights Reserved</p>
+
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+<a href="Footer.html#about" style="color: white; margin-right: 15px;">About Us</a>
+<a href="Footer.html#terms" style="color: white; margin-right: 15px;">Terms of Service</a>
+<a href="Footer.html#policies" style="color: white; margin-right: 15px;">Privacy Policy</a>
+<a href="Footer.html#services" style="color: white; margin-right: 15px;">Products & Services</a>
+<a href="Footer.html#contact" style="color: white;">Contact Us</a>
+
     </nav>
-    <p>&copy; 2024 Academic Warriors. All rights reserved.</p>
+
 </footer>
 
 <!-- Modal for displaying images -->
