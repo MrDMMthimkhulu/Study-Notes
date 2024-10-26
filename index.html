@@ -13,7 +13,6 @@
             font-family: Arial, sans-serif;
         }
 
-        
         header {
             background-color: #000;
             color: #fff;
@@ -35,16 +34,16 @@
         .welcome {
             background-color: #e0f7fa;
             padding: 20px;
-            margin: 20px 0; /* Added margin to space it from the notification */
+            margin: 20px 0;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgb(119, 0, 0);
             font-size: 1.2rem;
             color: #333;
-            text-align: center; /* Center text horizontally */
-            display: flex; /* Enable flexbox */
-            justify-content: center; /* Center text horizontally */
-            align-items: center; /* Center text vertically */
-            min-height: 200px; /* Set a minimum height to help with vertical centering */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
         }
 
         .datetime {
@@ -78,7 +77,7 @@
             line-height: 1.6;
         }
 
-        .docsend-btn {
+        .docsend-btn, .preview-btn {
             display: inline-block;
             padding: 10px 20px;
             margin-top: 10px;
@@ -89,52 +88,28 @@
             font-size: 1rem;
         }
 
-        .docsend-btn:hover {
+        .docsend-btn:hover, .preview-btn:hover {
             background-color: #555;
         }
 
-footer {
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 33px 0;
-    margin-top: 40px;
-}
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 33px 0;
+            margin-top: 40px;
+        }
 
-.footer-content {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center;    /* Center align items */
-}
+        footer nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
 
-footer nav {
-    margin-top: 29px;       /* Add some space above the nav links */
-}
+        footer nav a:hover {
+            text-decoration: underline;
+        }
 
-footer nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;         /* Add horizontal spacing between links */
-}
-
-footer nav a:hover {
-    text-decoration: underline;
-}
-
-/* Optional: Media query for responsiveness */
-@media (max-width: 768px) {
-    footer nav {
-        flex-direction: column; /* Stack links vertically on smaller screens */
-        align-items: center;     /* Center align items */
-    }
-
-    footer nav a {
-        margin: 5px 0;          /* Add vertical spacing between links */
-    }
-}
-
-
-        /* Notification Box Styles */
         .notification {
             background-color: #ce0404;
             color: #000;
@@ -164,6 +139,46 @@ footer nav a:hover {
             }
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8); 
+        }
+
+        .modal-content {
+            margin: 15% auto; 
+            padding: 20px;
+            width: 80%; 
+            text-align: center; 
+        }
+
+        .modal img {
+            width: 100%; 
+            height: auto; 
+            margin-bottom: 20px;
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
             header h1 {
@@ -172,7 +187,7 @@ footer nav a:hover {
 
             .welcome {
                 font-size: 1rem;
-                min-height: 150px; /* Adjusted minimum height */
+                min-height: 150px;
             }
 
             .module h2 {
@@ -183,7 +198,7 @@ footer nav a:hover {
                 font-size: 0.9rem;
             }
 
-            .docsend-btn {
+            .docsend-btn, .preview-btn {
                 font-size: 0.9rem;
                 padding: 8px 16px;
             }
@@ -193,7 +208,7 @@ footer nav a:hover {
             }
 
             .datetime {
-                font-size: 1.2rem; /* Smaller font for mobile */
+                font-size: 1.2rem;
             }
         }
 
@@ -208,7 +223,7 @@ footer nav a:hover {
 
             .welcome {
                 font-size: 0.9rem;
-                min-height: 120px; /* Adjusted minimum height */
+                min-height: 120px;
             }
 
             .module h2 {
@@ -219,7 +234,7 @@ footer nav a:hover {
                 font-size: 0.8rem;
             }
 
-            .docsend-btn {
+            .docsend-btn, .preview-btn {
                 font-size: 0.85rem;
                 padding: 7px 14px;
             }
@@ -229,7 +244,7 @@ footer nav a:hover {
             }
 
             .datetime {
-                font-size: 1rem; /* Smaller font for mobile */
+                font-size: 1rem;
             }
         }
     </style>
@@ -240,11 +255,8 @@ footer nav a:hover {
     <h1>Academic Warriors</h1>
 </header>
 
-    
-  <STRONG>     <div class="datetime" id="datetime">
-        <!-- Live date and time will be displayed here -->
-    </div> </STRONG>  
-    
+<div class="datetime" id="datetime"></div>
+
 <div class="container">
     <div class="welcome">
         Welcome to Academic Warriors!<br><br>
@@ -252,8 +264,6 @@ footer nav a:hover {
         Our notes are meticulously organized with clear headings to help you identify key topics, allowing you to focus on what matters most. Whether you're preparing for semester tests or striving for academic excellence, our resources will guide you through the toughest subjects and equip you with the tools you need to succeed.<br><br>
         Join our community of learners and become a warrior in your academic pursuits!
     </div>
-
-
 
     <div class="notification">
        "🔔 Additional notes for the upcoming exams, along with more modules, will be available by the end of next week."
@@ -263,78 +273,109 @@ footer nav a:hover {
         <h2>BDO121 - Introduction to Industrial Psychology</h2>
         <p>This module covers the fundamentals of industrial psychology, focusing on human behavior in the workplace, psychological assessment, and organizational development.</p>
         <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access BDO121 Notes</a>
+        <button class="preview-btn" onclick="showPreview('BDO121')">Preview Notes</button>
     </div>
 
     <div class="module" id="pto101">
         <h2>PTO101 - Politics and International Relations</h2>
-        <p>This module examines organized political society at national and international levels, focusing on political concepts, state governance, and the impact of globalization. It addresses regime development, national sovereignty challenges, and transnational issues like the environment and human rights.</p>
+        <p>This module examines organized political society at national and international levels, focusing on political concepts, state governance, and the impact of globalization.</p>
+               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access PTO101 Notes</a>
+        <button class="preview-btn" onclick="showPreview('PTO101')">Preview Notes</button>
     </div>
 
     <div class="module" id="ekn120">
         <h2>EKN120 - Economics</h2>
-        <p>This module covers core economic principles, focusing on macroeconomic measurement in South Africa's private and public sectors. It includes topics like aggregate demand and supply, economic growth, unemployment, inflation, microeconomics of government, international trade, and South Africa's role in the global economy.</p>
+        <p>This module covers core economic principles, focusing on macroeconomic measurement in South Africa's private and public sectors.</p>
+               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access EKN120 Notes</a>
+        <button class="preview-btn" onclick="showPreview('EKN120')">Preview Notes</button>
     </div>
 
     <div class="module" id="inl120">
         <h2>INL120 - Information Science</h2>
-        <p>This module delves into information systems, data management, and the role of information in society, preparing students for data-driven decision-making.</p>
+        <p>This module delves into information systems, data management, and the role of information in society.</p>       
+        <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access INL120 Notes</a>
+        <button class="preview-btn" onclick="showPreview('INL120')">Preview Notes</button>
     </div>
 
     <div class="module" id="inl140">
         <h2>INL140 - Information Science</h2>
-        <p>A continuation of the INL120 module, this section focuses on advanced topics in information science, such as knowledge management and information architecture.</p>
+        <p>A continuation of the INL120 module, this section focuses on advanced topics in information science.</p>
+               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access INL140 Notes</a>
+        <button class="preview-btn" onclick="showPreview('INL140')">Preview Notes</button>
     </div>
 
     <div class="module" id="pad122">
-        <h2>PAD 122 - Public Administration</h2>
-        <p>Public Administration introduces the constitutional principles of public administration, focusing on the South African governmental structure. It covers the roles, responsibilities, and authority of the executive, legislative, and judicial branches, as well as the functioning of the three tiers of government.</p>
+        <h2>PAD122 - Public Administration</h2>
+        <p>This module introduces constitutional principles of public administration and the South African governmental structure.</p>
+               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access PAD122 Notes</a>
+        <button class="preview-btn" onclick="showPreview('PAD122')">Preview Notes</button>
     </div>
 
     <div class="module" id="eng120">
-        <h2>ENG 120 - English</h2>
-        <p>English introduces students to post-nineteenth-century literature through the study of various texts across genres, including poetry, drama, and prose, from Africa and around the world. With two discussion classes per week, the module aims to equip students with the background knowledge and analytical skills necessary for perceptively reading modern and contemporary literary works.</p>
-    </div>
-
-    <div class="module" id="krm120">
-        <h2>KRM 120 - Criminology</h2>
-        <p>Criminology covers Penology, focusing on key participants in the criminal justice system, and Crime Prevention and Control, addressing crime trends, criminal behavior theories, and prevention strategies.</p>
-    </div>
-
-    <div class="module" id="slk120">
-        <h2>SLK 120 - Psychology</h2>
-        <p>Psychology provides an introduction to the biological basis of human behavior, covering key concepts, terminology, and principles of biological psychology. It explores the interconnection of biological systems and subsystems, while also examining cognitive processes such as perception, memory, thinking, intelligence, and creativity.</p>
+        <h2>ENG120 - English Literature</h2>
+        <p>This module introduces post-nineteenth-century literature through the study of various texts across genres.</p>
+               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access ENG120 Notes</a>
+        <button class="preview-btn" onclick="showPreview('ENG120')">Preview Notes</button>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2024 Academic Warriors | All Rights Reserved</p>
-
     <nav>
-<a href="Footer.html#about" style="color: white; margin-right: 15px;">About Us</a>
-<a href="Footer.html#terms" style="color: white; margin-right: 15px;">Terms of Service</a>
-<a href="Footer.html#policies" style="color: white; margin-right: 15px;">Privacy Policy</a>
-<a href="Footer.html#services" style="color: white; margin-right: 15px;">Products & Services</a>
-<a href="Footer.html#contact" style="color: white;">Contact Us</a>
-
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
     </nav>
-
+    <p>&copy; 2024 Academic Warriors. All rights reserved.</p>
 </footer>
 
+<!-- Modal for displaying images -->
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Preview">
+    </div>
+</div>
+
 <script>
+    // Display current date and time
     function updateDateTime() {
         const now = new Date();
-        const options = { 
-            weekday: 'long', year: 'numeric', month: 'long', 
-            day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', 
-            hour12: false // Set to false for 24-hour format
-        };
-        const datetimeString = now.toLocaleDateString('en-US', options);
-        document.getElementById('datetime').textContent = datetimeString;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const formattedDate = now.toLocaleDateString('en-US', options);
+        document.getElementById('datetime').innerText = formattedDate;
     }
 
-    setInterval(updateDateTime, 1000); // Update every second
-    updateDateTime(); // Initial call to display immediately
-</script>
+    // Show images in a modal
+    function showPreview(module) {
+        const images = {
+            'BDO121': ['BDO1.png', 'BDO2.png', 'BDO3.png', 'BDO4.png'],
+            'PTO101': ['PTO1.png', 'PTO2.png', 'PTO3.png', 'PTO4.png'], // Added PTO101 images
+            'EKN120': ['image1.png', 'image2.png'], // Add appropriate images
+            'INL120': ['image1.png', 'image2.png'], // Add appropriate images
+            'INL140': ['image1.png', 'image2.png'], // Add appropriate images
+            'PAD122': ['image1.png', 'image2.png'], // Add appropriate images
+            'ENG120': ['image1.png', 'image2.png']  // Add appropriate images
+        };
 
+        const imageList = images[module] || [];
+        let modalContent = '';
+
+        imageList.forEach((img, index) => {
+            modalContent += `<img src="${img}" alt="Preview ${index + 1}">`;
+        });
+
+        document.querySelector('.modal-content').innerHTML = modalContent;
+        document.getElementById('myModal').style.display = 'block';
+    }
+
+    // Close the modal
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // Update the date and time every second
+    setInterval(updateDateTime, 1000);
+    updateDateTime(); // Initial call to display the date and time
+</script>
 </body>
 </html>
