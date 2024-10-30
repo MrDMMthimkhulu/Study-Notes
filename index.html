@@ -1,468 +1,670 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <title>Academic Warriors - Empowering Students with Study Notes</title>
-    <meta name="description" content="Join Academic Warriors for access to comprehensive study notes designed to help students excel in their academic pursuits. Explore our extensive modules, including BDO121 notes, PTO101 notes, INL120 notes, INL140 notes, ENG120 notes, EKN120 notes, and PAD122 notes.">
-    <meta name="keywords" content="Academic Warriors, study notes, BDO121 notes, PTO101 notes, INL120 notes, INL140 notes, ENG120 notes, EKN120 notes, PAD122 notes, student resources, academic excellence, education">
-    <meta name="author" content="Academic Warriors Team">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        .welcome {
-            background-color: #e0f7fa;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgb(119, 0, 0);
-            font-size: 1.2rem;
-            color: #333;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-        }
-
-        .datetime {
-            font-size: 1.5rem;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .module {
-            background-color: #f0f0f0;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px #000;
-            transition: transform 0.3s ease;
-        }
-
-        .module:hover {
-            transform: translateY(-5px);
-        }
-
-        .module h2 {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .module p {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .docsend-btn, .preview-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 10px;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .docsend-btn:hover, .preview-btn:hover {
-            background-color: #555;
-        }
-
-footer {
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 33px 0;
-    margin-top: 40px;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center;    /* Center align items */
-}
-
-footer nav {
-    margin-top: 29px;       /* Add some space above the nav links */
-}
-
-footer nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;         /* Add horizontal spacing between links */
-}
-
-footer nav a:hover {
-    text-decoration: underline;
-}
-
-/* Optional: Media query for responsiveness */
-@media (max-width: 768px) {
-    footer nav {
-        flex-direction: column; /* Stack links vertically on smaller screens */
-        align-items: center;     /* Center align items */
-    }
-
-    footer nav a {
-        margin: 5px 0;          /* Add vertical spacing between links */
-    }
-}
-
-
-        .notification {
-            background-color: #ce0404;
-            color: #000;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            text-align: center;
-            animation: heartbeat 1.5s infinite, bounce 0.5s infinite alternate;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
+    <head>
+        <title>Academic Warriors - Empowering Students with Study Notes</title>
+        <meta
+            name="description"
+            content="Join Academic Warriors for access to comprehensive study notes designed to help students excel in their academic pursuits. Explore our extensive modules, including BDO121 notes, PTO101 notes, INL120 notes, INL140 notes, ENG120 notes, EKN120 notes, and PAD122 notes." />
+        <meta
+            name="keywords"
+            content="Academic Warriors, study notes, BDO121 notes, PTO101 notes, INL120 notes, INL140 notes, ENG120 notes, EKN120 notes, PAD122 notes, student resources, academic excellence, education" />
+        <meta name="author" content="Academic Warriors Team" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
             }
-            50% {
-                transform: scale(1.05);
+
+            header {
+                background-color: #000;
+                color: #fff;
+                padding: 20px 0;
+                text-align: center;
             }
-        }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.8); 
-        }
-
-        .modal-content {
-            margin: 15% auto; 
-            padding: 20px;
-            width: 80%; 
-            text-align: center; 
-        }
-
-        .modal img {
-            width: 100%; 
-            height: auto; 
-            margin-bottom: 20px;
-        }
-
-        .close {
-            color: white;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #999;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
-            }
-
-            .welcome {
-                font-size: 1rem;
-                min-height: 150px;
-            }
-
-            .module h2 {
-                font-size: 1.5rem;
-            }
-
-            .module p {
-                font-size: 0.9rem;
-            }
-
-            .docsend-btn, .preview-btn {
-                font-size: 0.9rem;
-                padding: 8px 16px;
-            }
-
-            .notification {
-                font-size: 1rem;
-            }
-
-            .datetime {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
+                letter-spacing: 2px;
             }
 
             .container {
-                width: 95%;
+                width: 402%;
+                max-width: 1209px;
+                margin: 40px auto;
             }
 
-            .welcome {
-                font-size: 0.9rem;
-                min-height: 120px;
+#academic-warriors {
+    width: 100%; /* Adjust as necessary */
+    max-width: 1200px; /* Set a max width */
+    margin: 40px auto; /* Center the container with margin */
+    padding: 20px; /* Padding for spacing */
+    background-color: rgba(240, 248, 255, 0.9); /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.welcome {
+    background-color: #e0f7fa; /* Background for welcome */
+    padding: 20px;
+    margin: 0; /* Reset margin */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(119, 0, 0);
+    font-size: 1.2rem;
+    color: #333; /* Text color */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+
+            .datetime {
+                font-size: 1.5rem;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .module {
+                background-color: #f0f0f0;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px #000;
+                transition: transform 0.3s ease;
+            }
+
+            .module:hover {
+                transform: translateY(-5px);
             }
 
             .module h2 {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
+                color: #333;
+                margin-bottom: 10px;
+                text-align: center; /* Center the text */
             }
 
             .module p {
-                font-size: 0.8rem;
-            }
-
-            .docsend-btn, .preview-btn {
-                font-size: 0.85rem;
-                padding: 7px 14px;
-            }
-
-            .notification {
-                font-size: 0.9rem;
-            }
-
-            .datetime {
+                color: #666;
                 font-size: 1rem;
+                line-height: 1.6;
+                text-align: center; /* Center the text */
             }
-        }
-        
-        .payment-button {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0; /* Space above the footer */
-}
 
-.payment-button a {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #333;
-    color: white;
+            /* Centered button container */
+            .button-container {
+                display: flex; /* Use flexbox for buttons */
+                justify-content: center; /* Center buttons horizontally */
+                margin-top: 20px; /* Space above the button container */
+            }
+
+            /* Button styles */
+.docsend-btn,
+.preview-btn {
+    padding: 10px 20px;
+    margin: 0 10px; /* Space between buttons */
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent */
+    color: #6b4242;
     text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.payment-button a:hover {
-    background-color: #555;
-}
-
-.payment-instructions {
-    text-align: center;
-    margin: 20px auto;
+    border-radius: 5px;
     font-size: 1rem;
-    color: #333;
-    max-width: 700px;
-    line-height: 1.6;
+    border: 2px solid #eccece; /* Outline border with color */
+    cursor: pointer;
 }
 
-        
-    </style>
-</head>
-<body>
+            /* Button hover effect */
+            .docsend-btn:hover,
+            .preview-btn:hover {
+                background-color: #555;
+            }
 
-<header>
-    <h1>Academic Warriors</h1>
-</header>
+            footer {
+                background-color: #000000;
+                color: white;
+                text-align: center;
+                padding: 33px 0;
+                margin-top: 40px;
+            }
 
-<div class="datetime" id="datetime"></div>
+            .footer-content {
+                display: flex;
+                flex-direction: column; /* Stack content vertically */
+                align-items: center; /* Center align items */
+            }
 
-<div class="container">
+            footer nav {
+                margin-top: 29px; /* Add some space above the nav links */
+            }
+
+            footer nav a {
+                color: white;
+                text-decoration: none;
+                margin: 0 10px; /* Add horizontal spacing between links */
+            }
+
+            footer nav a:hover {
+                text-decoration: underline;
+            }
+
+            /* Optional: Media query for responsiveness */
+            @media (max-width: 768px) {
+                footer nav {
+                    flex-direction: column; /* Stack links vertically on smaller screens */
+                    align-items: center; /* Center align items */
+                }
+
+                footer nav a {
+                    margin: 5px 0; /* Add vertical spacing between links */
+                }
+            }
+
+            @keyframes heartbeat {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+
+            @keyframes bounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            /* Modal Styles */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .modal-content {
+                margin: 15% auto;
+                padding: 20px;
+                width: 80%;
+                text-align: center;
+            }
+
+            .modal img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .close {
+                color: white;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #999;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* Media Queries for Responsive Design */
+            @media (max-width: 768px) {
+                header h1 {
+                    font-size: 2rem;
+                }
+
+                .welcome {
+                    font-size: 1rem;
+                    min-height: 150px;
+                }
+
+                .module h2 {
+                    font-size: 1.5rem;
+                }
+
+                .module p {
+                    font-size: 0.9rem;
+                }
+
+                .docsend-btn,
+                .preview-btn {
+                    font-size: 0.9rem;
+                    padding: 8px 16px;
+                }
+
+                .notification {
+                    font-size: 1rem;
+                }
+
+                .datetime {
+                    font-size: 1.2rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                header h1 {
+                    font-size: 1.8rem;
+                }
+
+                .container {
+                    width: 95%;
+                }
+
+                .welcome {
+                    font-size: 0.9rem;
+                    min-height: 120px;
+                }
+
+                .module h2 {
+                    font-size: 1.3rem;
+                }
+
+                .module p {
+                    font-size: 0.8rem;
+                }
+
+                .docsend-btn,
+                .preview-btn {
+                    font-size: 0.85rem;
+                    padding: 7px 14px;
+                }
+
+                .notification {
+                    font-size: 0.9rem;
+                }
+
+                .datetime {
+                    font-size: 1rem;
+                }
+            }
+
+            .payment-button {
+                display: flex;
+                justify-content: center;
+                margin: 20px 0; /* Space above the footer */
+            }
+
+            .payment-button a {
+                display: inline-block;
+                padding: 15px 30px;
+                background-color: #333;
+                color: white;
+                text-decoration: none;
+                font-size: 1.2rem;
+                border-radius: 8px;
+                transition: background-color 0.3s ease;
+            }
+
+            .payment-button a:hover {
+                background-color: #555;
+            }
+
+            .payment-instructions {
+                text-align: center;
+                margin: 20px auto;
+                font-size: 1rem;
+                color: #333;
+                max-width: 700px;
+                line-height: 1.6;
+            }
+
+            /* Grid and Image Styles */
+            .image-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr); /* Four images per row */
+                gap: 10px; /* Space between images */
+            }
+
+            .image-container {
+                width: 100%;
+                height: 250px;
+                background-color: #fff;
+                border-radius: 5px; /* Rounded corners */
+                overflow: hidden; /* Clip overflow */
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                transition: transform 0.3s; /* Smooth hover transition */
+            }
+
+            .image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Cover the area without distortion */
+                transition: transform 0.3s; /* Transition for scaling effect */
+            }
+
+            .image-container img:hover {
+                transform: scale(1.1); /* Scale effect on hover */
+            }
+
+            /* Responsive Grid */
+            @media (max-width: 899px) {
+                .image-grid {
+                    grid-template-columns: repeat(2, 1fr); /* Two images per row */
+                }
+            }
+
+            @media (max-width: 600px) {
+                .image-grid {
+                    grid-template-columns: 1fr; /* One image per row */
+                }
+
+                .image-container {
+                    height: 200px; /* Adjusted height for smaller screens */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Academic Warriors</h1>
+        </header>
+
+        <div class="datetime" id="datetime"></div>
+
+<div id="academic-warriors">
     <div class="welcome">
-        Welcome to Academic Warriors!<br><br>
-        Empower your academic journey with our unique study notes designed for warriors in the battle of knowledge. At Academic Warriors, we believe that effective studying is about more than just memorizing information—it's about understanding concepts and retaining knowledge for the long haul.<br><br>
-        Our notes are meticulously organized with clear headings to help you identify key topics, allowing you to focus on what matters most. Whether you're preparing for semester tests or striving for academic excellence, our resources will guide you through the toughest subjects and equip you with the tools you need to succeed.<br><br>
+        Welcome to Academic Warriors!<br /><br />
+        Empower your academic journey with our unique study notes designed for warriors in the battle of
+        knowledge. At Academic Warriors, we believe that effective studying is about more than just memorizing
+        information—it's about understanding concepts and retaining knowledge for the long haul.<br /><br />
+        Our notes are meticulously organized with clear headings to help you identify key topics, allowing you
+        to focus on what matters most. Whether you're preparing for semester tests or striving for academic
+        excellence, our resources will guide you through the toughest subjects and equip you with the tools you
+        need to succeed.<br /><br />
         Join our community of learners and become a warrior in your academic pursuits!
     </div>
-
-    <div class="notification">
-       "🔔 Additional notes for the upcoming exams, along with more modules, will be available by the end of next week."
-    </div>
-
-    <div class="module" id="bdo121">
-        <h2>BDO121 - Introduction to Industrial Psychology</h2>
-        <p>This module covers the fundamentals of industrial psychology, focusing on human behavior in the workplace, psychological assessment, and organizational development.</p>
-        <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access BDO121 Notes</a>
-        <button class="preview-btn" onclick="showPreview('BDO121')">Preview Notes</button>
-    </div>
-
-    <div class="module" id="pto101">
-        <h2>PTO101 - Politics and International Relations</h2>
-        <p>This module examines organized political society at national and international levels, focusing on political concepts, state governance, and the impact of globalization.</p>
-        <br>
-        <p><strong>Price:</strong> R70 for everything</p>
-               <a href="https://docsend.com/view/s/p4yd4qqbj92vp55a" class="docsend-btn" target="_blank">Access PTO101 Notes</a>
-        <button class="preview-btn" onclick="showPreview('PTO101')">Preview Notes</button>
-    </div>
-
-    <div class="module" id="ekn120">
-        <h2>EKN120 - Economics</h2>
-        <p>This module covers core economic principles, focusing on macroeconomic measurement in South Africa's private and public sectors.</p>
-               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access EKN120 Notes</a>
-        <button class="preview-btn" onclick="showPreview('EKN120')">Preview Notes</button>
-    </div>
-
-    <div class="module" id="inl120">
-        <h2>INL120 - Information Science</h2>
-        <p>This module delves into information systems, data management, and the role of information in society.</p>       
-        <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access INL120 Notes</a>
-        <button class="preview-btn" onclick="showPreview('INL120')">Preview Notes</button>
-    </div>
-
-    <div class="module" id="inl140">
-        <h2>INL140 - Information Science</h2>
-        <p>A continuation of the INL120 module, this section focuses on advanced topics in information science.</p>
-               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access INL140 Notes</a>
-        <button class="preview-btn" onclick="showPreview('INL140')">Preview Notes</button>
-    </div>
-
-    <div class="module" id="pad122">
-        <h2>KRM120 - Criminology</h2>
-        <p>Criminology 120 provides a comprehensive overview of critical aspects of the criminal justice system, equipping students with knowledge about both the theoretical and practical dimensions of crime and its management.</p>
-               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access KRM120 Notes</a>
-        <button class="preview-btn" onclick="showPreview('PAD122')">Preview Notes</button>
-    </div>
-
-    <div class="module" id="eng120">
-        <h2>ENG120 - English Literature</h2>
-        <p>This module introduces post-nineteenth-century literature through the study of various texts across genres.</p>
-               <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank">Access ENG120 Notes</a>
-        <button class="preview-btn" onclick="showPreview('ENG120')">Preview Notes</button>
-    </div>
 </div>
 
-<div class="payment-instructions" style="text-align: center; margin: 20px auto; padding: 15px; border: 1px solid #333; border-radius: 8px; background-color: #f9f9f9;">
-    <p>To access all our study notes, subscribe by clicking the "Subscribe Now" button below. You’ll be taken to our secure payment page. Enter the amount of the notes you want to purchase. After completing the payment, please use your student email address as the reference. You’ll receive access to the notes within 2 hours.</p>
-</div>
-
-<a href="https://page.peachpayments.com/academic-warriors" target="_blank" style="display: block; width: fit-content; margin: 0 auto; padding: 10px 20px; background-color: #333; color: #fff; border-radius: 5px; text-decoration: none; text-align: center;">Subscribe Now</a>
+           
 
 
-    
-    
-<footer>
-    <p>&copy; 2024 Academic Warriors | All Rights Reserved</p>
+        
+        <div class="module" id="bdo121">
+            <h2>BDO121 - Introduction to Industrial Psychology</h2>
+            <p>
+ This module covers the fundamentals of industrial psychology, focusing on human behavior in the
+                    workplace, psychological assessment, and organizational development.
+            </p>
+            <br />
+            <p><strong>Price:</strong> R50 for everything</p>
 
-    <nav>
-<a href="Footer.html" style="color: white; margin-right: 15px;">About Us</a>
-<a href="Footer.html" style="color: white; margin-right: 15px;">Terms of Service</a>
-<a href="Footer.html" style="color: white; margin-right: 15px;">Privacy Policy</a>
-<a href="Footer.html" style="color: white; margin-right: 15px;">Products & Services</a>
-<a href="Footer.html#contact" style="color: white;">Contact Us</a>
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank"
+                    >Access BDO121 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('BDO121')">Preview Notes</button>
+            </div>
 
-    </nav>
+            <div class="image-grid" id="bdo121-images">
+                <div class="image-container"><img src="Psych 1.jpg" alt="Psych 1" /></div>
+                <div class="image-container"><img src="Psych 2.jpg" alt="Psych 2" /></div>
+                <div class="image-container"><img src="Psych 3.jpg" alt="Psych 3" /></div>
+                <div class="image-container"><img src="Psych 4.jpg" alt="Psych 4" /></div>
+            </div>
+        </div>        
+        
+        
+        
+        
+        <div class="module" id="pto101">
+            <h2>PTO101 - Politics and International Relations</h2>
+            <p>
+                This module examines organized political society at national and international levels, focusing on
+                political concepts, state governance, and the impact of globalization.
+            </p>
+            <br />
+            <p><strong>Price:</strong> R70 for everything</p>
 
-</footer>
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/p4yd4qqbj92vp55a" class="docsend-btn" target="_blank"
+                    >Access PTO101 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('PTO101')">Preview Notes</button>
+            </div>
 
-<!-- Modal for displaying images -->
-<div id="myModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div class="modal-content">
-        <img id="modalImage" src="" alt="Preview">
-    </div>
-</div>
+            <div class="image-grid" id="pto101-images">
+                <div class="image-container"><img src="PS 1.jpg" alt="PS 1" /></div>
+                <div class="image-container"><img src="PS 2.jpg" alt="PS 2" /></div>
+                <div class="image-container"><img src="PS 3.jpg" alt="PS 3" /></div>
+                <div class="image-container"><img src="PS 4.jpg" alt="PS 4" /></div>
+            </div>
+        </div>
 
-<script>
-    // Display current date and time
-    function updateDateTime() {
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        const formattedDate = now.toLocaleDateString('en-US', options);
-        document.getElementById('datetime').innerText = formattedDate;
-    }
+        <div class="module" id="ekn120">
+            <h2>EKN120 - Economics</h2>
+            <p>
+                This module covers core economic principles, focusing on macroeconomic measurement in South Africa's
+                private and public sectors.
+            </p>
 
-    // Show images in a modal
-    function showPreview(module) {
-        const images = {
-            'BDO121': ['BDO1.png', 'BDO2.png', 'BDO3.png', 'BDO4.png'],
-            'PTO101': ['PTO1.png', 'PTO2.png', 'PTO3.png', 'PTO4.png'], // Added PTO101 images
-            'EKN120': ['image1.png', 'image2.png'], // Add appropriate images
-            'INL120': ['image1.png', 'image2.png'], // Add appropriate images
-            'INL140': ['image1.png', 'image2.png'], // Add appropriate images
-            'PAD122': ['image1.png', 'image2.png'], // Add appropriate images
-            'ENG120': ['image1.png', 'image2.png']  // Add appropriate images
-        };
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank"
+                    >Access EKN120 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('EKN120')">Preview Notes</button>
+            </div>
 
-        const imageList = images[module] || [];
-        let modalContent = '';
+            <div class="image-grid" id="ekn120-images">
+                <div class="image-container"><img src="Eco 1.jpg" alt="Eco 1" /></div>
+                <div class="image-container"><img src="Eco 2.jpg" alt="Eco 2" /></div>
+                <div class="image-container"><img src="Eco 3.jpg" alt="Eco 3" /></div>
+                <div class="image-container"><img src="Eco 4.jpg" alt="Eco 4" /></div>
+            </div>
+        </div>
 
-        imageList.forEach((img, index) => {
-            modalContent += `<img src="${img}" alt="Preview ${index + 1}">`;
-        });
+        <div class="module" id="inl120">
+            <h2>INL120 - Information Science</h2>
+            <p>This module delves into information systems, data management, and the role of information in society.</p>
 
-        document.querySelector('.modal-content').innerHTML = modalContent;
-        document.getElementById('myModal').style.display = 'block';
-    }
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank"
+                    >Access INL120 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('INL120')">Preview Notes</button>
+            </div>
 
-    // Close the modal
-    function closeModal() {
-        document.getElementById('myModal').style.display = 'none';
-    }
+            <div class="image-grid" id="inl120-images">
+                <div class="image-container"><img src="IN120 1.jpg" alt="IN120 1" /></div>
+                <div class="image-container"><img src="IN120 2.jpg" alt="IN120 2" /></div>
+                <div class="image-container"><img src="IN120 3.jpg" alt="IN120 3" /></div>
+                <div class="image-container"><img src="IN120 4.jpg" alt="IN120 4" /></div>
+            </div>
+        </div>
 
-    // Update the date and time every second
-    setInterval(updateDateTime, 1000);
-    updateDateTime(); // Initial call to display the date and time
-</script>
+        <div class="module" id="inl140">
+            <h2>INL140 - Information Science</h2>
+            <p>A continuation of the INL120 module, this section focuses on advanced topics in information science.</p>
 
-<script>
-window.embeddedChatbotConfig = {
-chatbotId: "QL9UWPRwgkxElk3neAmbW",
-domain: "www.chatbase.co"
-}
-</script>
-<script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="QL9UWPRwgkxElk3neAmbW"
-domain="www.chatbase.co"
-defer>
-</script>
-    
-</body>
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank"
+                    >Access INL140 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('INL140')">Preview Notes</button>
+            </div>
+
+            <div class="image-grid" id="inl140-images">
+                <div class="image-container"><img src="IN140 1.jpg" alt="IN140 1" /></div>
+                <div class="image-container"><img src="IN140 2.jpg" alt="IN140 2" /></div>
+                <div class="image-container"><img src="IN140 3.jpg" alt="IN140 3" /></div>
+                <div class="image-container"><img src="IN140 4.jpg" alt="IN140 4" /></div>
+            </div>
+        </div>
+
+        <div class="module" id="krm120">
+            <h2>KRM120 - Criminology</h2>
+            <p>
+                Criminology 120 provides a comprehensive overview of critical aspects of the criminal justice system,
+                equipping students with knowledge about both the theoretical and practical dimensions of crime and its
+                management.
+            </p>
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank"
+                    >Access KRM120 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('PAD122')">Preview Notes</button>
+            </div>
+
+            <div class="image-grid" id="krm120-images">
+                <div class="image-container"><img src="crimi 1.jpg" alt="crimi 1" /></div>
+                <div class="image-container"><img src="crimi 2.jpg" alt="crimi 2" /></div>
+                <div class="image-container"><img src="crimi 3.jpg" alt="crimi 3" /></div>
+                <div class="image-container"><img src="crimi 4.jpg" alt="crimi 4" /></div>
+            </div>
+        </div>
+
+        <div class="module" id="slk120">
+            <h2>SLK120 - Psychology 120</h2>
+            <p>
+                Psychology 120 provides students with a comprehensive foundation in biological psychology, equipping them with the knowledge to understand the complex interplay between biological processes and human behavior.
+            </p>
+
+            <div class="button-container">
+                <a href="https://docsend.com/view/s/7uqnjkiey4cgjks3" class="docsend-btn" target="_blank"
+                    >Access SLK120 Notes</a
+                >
+                <button class="preview-btn" onclick="showPreview('PAD122')">Preview Notes</button>
+            </div>
+
+            <div class="image-grid" id="slk120-images">
+                <div class="image-container"><img src="Psy 1.jpg" alt="Psy 1" /></div>
+                <div class="image-container"><img src="Psy 2.jpg" alt="Psy 2" /></div>
+                <div class="image-container"><img src="Psy 3.jpg" alt="Psy 3" /></div>
+                <div class="image-container"><img src="Psy 4.jpg" alt="Psy 4" /></div>
+            </div>
+        </div>
+
+        <div
+            class="payment-instructions"
+            style="
+                text-align: center;
+                margin: 20px auto;
+                padding: 15px;
+                border: 1px solid #333;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            ">
+            <p>
+                To access all our study notes, subscribe by clicking the "Subscribe Now" button below. You’ll be taken
+                to our secure payment page. Enter the amount of the notes you want to purchase. After completing the
+                payment, please use your student email address as the reference. You’ll receive access to the notes
+                within 2 hours.
+            </p>
+        </div>
+
+        <a
+            href="https://page.peachpayments.com/academic-warriors"
+            target="_blank"
+            style="
+                display: block;
+                width: fit-content;
+                margin: 0 auto;
+                padding: 10px 20px;
+                background-color: #333;
+                color: #fff;
+                border-radius: 5px;
+                text-decoration: none;
+                text-align: center;
+            "
+            >Subscribe Now</a
+        >
+
+        <footer>
+            <p>&copy; 2024 Academic Warriors | All Rights Reserved</p>
+
+            <nav>
+                <a href="Footer.html" style="color: white; margin-right: 15px">About Us</a>
+                <a href="Footer.html" style="color: white; margin-right: 15px">Terms of Service</a>
+                <a href="Footer.html" style="color: white; margin-right: 15px">Privacy Policy</a>
+                <a href="Footer.html" style="color: white; margin-right: 15px">Products & Services</a>
+                <a href="Footer.html#contact" style="color: white">Contact Us</a>
+            </nav>
+        </footer>
+
+        <!-- Modal for displaying images -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+<img id="modalImage" src="default-image.jpg" alt="Image preview" style="display: none; width: 100%; height: auto;" />
+
+            </div>
+        </div>
+
+        <script>
+            // Display current date and time
+            function updateDateTime() {
+                const now = new Date();
+                const options = {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit"
+                };
+                const formattedDate = now.toLocaleDateString("en-US", options);
+                document.getElementById("datetime").innerText = formattedDate;
+            }
+
+            // Show images in a modal
+            function showPreview(module) {
+                const images = {
+                    BDO121: ["BDO1.png", "BDO2.png", "BDO3.png", "BDO4.png"],
+                    PTO101: ["PTO1.png", "PTO2.png", "PTO3.png", "PTO4.png"], // Added PTO101 images
+                    EKN120: ["image1.png", "image2.png"], // Add appropriate images
+                    INL120: ["image1.png", "image2.png"], // Add appropriate images
+                    INL140: ["image1.png", "image2.png"], // Add appropriate images
+                    PAD122: ["image1.png", "image2.png"], // Add appropriate images
+                    ENG120: ["image1.png", "image2.png"] // Add appropriate images
+                };
+
+                const imageList = images[module] || [];
+                let modalContent = "";
+
+                imageList.forEach((img, index) => {
+                    modalContent += `<img src="${img}" alt="Preview ${index + 1}">`;
+                });
+
+                document.querySelector(".modal-content").innerHTML = modalContent;
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            // Close the modal
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            // Update the date and time every second
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display the date and time
+        </script>
+
+        <script>
+            window.embeddedChatbotConfig = {
+                chatbotId: "QL9UWPRwgkxElk3neAmbW",
+                domain: "www.chatbase.co"
+            };
+        </script>
+        <script
+            src="https://www.chatbase.co/embed.min.js"
+            chatbotId="QL9UWPRwgkxElk3neAmbW"
+            domain="www.chatbase.co"
+            defer></script>
+    </body>
 </html>
