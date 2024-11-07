@@ -368,6 +368,59 @@
                     height: 200px; /* Adjusted height for smaller screens */
                 }
             }
+
+              .carousel-container {
+                display: flex;
+                overflow: hidden; 
+                position: relative;
+                max-width: 100%; 
+                margin: 20px auto; 
+                border-radius: 8px; 
+                box-shadow: 0 4px 10px #000000; 
+            }
+
+            .carousel-wrapper {
+                display: flex;
+                transition: transform 0.5s ease; 
+            }
+
+            .carousel-item {
+                flex: 0 0 33.3333%; 
+                max-width: 33.3333%; 
+                padding: 0;
+                position: relative; 
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: 480px; 
+                object-fit: cover; 
+                border-radius: 8px; 
+            }
+
+/* Styling for small screens */
+@media (max-width: 600px) {
+    .carousel-container {
+        padding: 0;
+        overflow-x: scroll;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%;
+        padding: 5px;
+    }
+
+    .carousel-item img {
+        border-radius: 6px;
+    }
+}
+
+/* Optional: Hide overflow on the x-axis */
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for webkit browsers */
+}
+
+
         </style>
     </head>
     <body>
@@ -376,6 +429,86 @@
         </header>
 
         <div class="datetime" id="datetime"></div>
+
+<!-- The Moving Pictures Section -->
+<div class="carousel-container">
+    <div class="carousel-wrapper" id="carousel">
+        <div class="carousel-item">
+            <img src="Move 1.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 2.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 3.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 4.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 5.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 6.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 7.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 8.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 9.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 10.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 11.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 12.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 13.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 14.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 15.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 16.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 17.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 18.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 19.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 20.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 21.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 22.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 23.jpeg" alt="move" />
+        </div>
+        <div class="carousel-item">
+            <img src="Move 24.jpeg" alt="move" />
+        </div>
+    </div>
+</div>
+
+
 
 <div id="academic-warriors">
     <div class="welcome">
@@ -390,7 +523,6 @@
         Join our community of learners and become a warrior in your academic pursuits!
     </div>
 </div>
-
            
 
 
@@ -660,6 +792,24 @@ PAD122 is a foundational module that offers students a comprehensive understandi
         </div>
 
         <script>
+
+
+            const carousel = document.getElementById("carousel");
+            const totalItems = carousel.children.length;
+            let index = 0;
+
+            function moveCarousel() {
+                index += 3; // Move 3 pictures in one time.
+                if (index >= totalItems) {
+                    index = 0; 
+                }
+                const offset = -(index * (100 / 3)); 
+                carousel.style.transform = `translateX(${offset}%)`; 
+            }
+
+            setInterval(moveCarousel, 2000); // Pictures will move every 3 seconds
+
+
             // Display current date and time
             function updateDateTime() {
                 const now = new Date();
