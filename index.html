@@ -19,417 +19,273 @@
         <meta name="author" content="Academic Warriors Team" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: Arial, sans-serif;
-            }
-
-            header {
-                background-color: #000;
-                color: #fff;
-                padding: 20px 0;
-                text-align: center;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-                letter-spacing: 2px;
-            }
-
-            .container {
-                width: 402%;
-                max-width: 1209px;
-                margin: 40px auto;
-            }
-
-#academic-warriors {
-    width: 100%; /* Adjust as necessary */
-    max-width: 1200px; /* Set a max width */
-    margin: 40px auto; /* Center the container with margin */
-    padding: 20px; /* Padding for spacing */
-    background-color: rgba(240, 248, 255, 0.9); /* Light background color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-}
-
-.welcome {
-    background-color: #e0f7fa; /* Background for welcome */
-    padding: 20px;
-    margin: 0; /* Reset margin */
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgb(119, 0, 0);
-    font-size: 1.2rem;
-    color: #333; /* Text color */
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-}
 
 
-            .datetime {
-                font-size: 1.5rem;
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            .module {
-                background-color: #f0f0f0;
-                padding: 20px;
-                margin-bottom: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px #000;
-                transition: transform 0.3s ease;
-            }
-
-            .module:hover {
-                transform: translateY(-5px);
-            }
-
-            .module h2 {
-                font-size: 1.8rem;
-                color: #333;
-                margin-bottom: 10px;
-                text-align: center; /* Center the text */
-            }
-
-            .module p {
-                color: #666;
-                font-size: 1rem;
-                line-height: 1.6;
-                text-align: center; /* Center the text */
-            }
-
-            /* Centered button container */
-            .button-container {
-                display: flex; /* Use flexbox for buttons */
-                justify-content: center; /* Center buttons horizontally */
-                margin-top: 20px; /* Space above the button container */
-            }
-
-            /* Button styles */
-.docsend-btn,
-.preview-btn {
-    padding: 10px 20px;
-    margin: 0 10px; /* Space between buttons */
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent */
-    color: #6b4242;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    border: 2px solid #eccece; /* Outline border with color */
-    cursor: pointer;
-}
-
-            /* Button hover effect */
-            .docsend-btn:hover,
-            .preview-btn:hover {
-                background-color: #555;
-            }
-
-            footer {
-                background-color: #000000;
-                color: white;
-                text-align: center;
-                padding: 33px 0;
-                margin-top: 40px;
-            }
-
-            .footer-content {
-                display: flex;
-                flex-direction: column; /* Stack content vertically */
-                align-items: center; /* Center align items */
-            }
-
-            footer nav {
-                margin-top: 29px; /* Add some space above the nav links */
-            }
-
-            footer nav a {
-                color: white;
-                text-decoration: none;
-                margin: 0 10px; /* Add horizontal spacing between links */
-            }
-
-            footer nav a:hover {
-                text-decoration: underline;
-            }
-
-            /* Optional: Media query for responsiveness */
-            @media (max-width: 768px) {
-                footer nav {
-                    flex-direction: column; /* Stack links vertically on smaller screens */
-                    align-items: center; /* Center align items */
-                }
-
-                footer nav a {
-                    margin: 5px 0; /* Add vertical spacing between links */
-                }
-            }
-
-            @keyframes heartbeat {
-                0%,
-                100% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
-                }
-            }
-
-            @keyframes bounce {
-                0%,
-                100% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-10px);
-                }
-            }
-
-            /* Modal Styles */
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.8);
-            }
-
-            .modal-content {
-                margin: 15% auto;
-                padding: 20px;
-                width: 80%;
-                text-align: center;
-            }
-
-            .modal img {
-                width: 100%;
-                height: auto;
-                margin-bottom: 20px;
-            }
-
-            .close {
-                color: white;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: #999;
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-            /* Media Queries for Responsive Design */
-            @media (max-width: 768px) {
-                header h1 {
-                    font-size: 2rem;
-                }
-
-                .welcome {
-                    font-size: 1rem;
-                    min-height: 150px;
-                }
-
-                .module h2 {
-                    font-size: 1.5rem;
-                }
-
-                .module p {
-                    font-size: 0.9rem;
-                }
-
-                .docsend-btn,
-                .preview-btn {
-                    font-size: 0.9rem;
-                    padding: 8px 16px;
-                }
-
-                .notification {
-                    font-size: 1rem;
-                }
-
-                .datetime {
-                    font-size: 1.2rem;
-                }
-            }
-
-            @media (max-width: 480px) {
-                header h1 {
-                    font-size: 1.8rem;
-                }
-
-                .container {
-                    width: 95%;
-                }
-
-                .welcome {
-                    font-size: 0.9rem;
-                    min-height: 120px;
-                }
-
-                .module h2 {
-                    font-size: 1.3rem;
-                }
-
-                .module p {
-                    font-size: 0.8rem;
-                }
-
-                .docsend-btn,
-                .preview-btn {
-                    font-size: 0.85rem;
-                    padding: 7px 14px;
-                }
-
-                .notification {
-                    font-size: 0.9rem;
-                }
-
-                .datetime {
-                    font-size: 1rem;
-                }
-            }
-
-            .payment-button {
-                display: flex;
-                justify-content: center;
-                margin: 20px 0; /* Space above the footer */
-            }
-
-            .payment-button a {
-                display: inline-block;
-                padding: 15px 30px;
-                background-color: #333;
-                color: white;
-                text-decoration: none;
-                font-size: 1.2rem;
-                border-radius: 8px;
-                transition: background-color 0.3s ease;
-            }
-
-            .payment-button a:hover {
-                background-color: #555;
-            }
-
-            .payment-instructions {
-                text-align: center;
-                margin: 20px auto;
-                font-size: 1rem;
-                color: #333;
-                max-width: 700px;
-                line-height: 1.6;
-            }
-
-            /* Grid and Image Styles */
-            .image-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr); /* Four images per row */
-                gap: 10px; /* Space between images */
-            }
-
-            .image-container {
-                width: 100%;
-                height: 250px;
-                background-color: #fff;
-                border-radius: 5px; /* Rounded corners */
-                overflow: hidden; /* Clip overflow */
-                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-                transition: transform 0.3s; /* Smooth hover transition */
-            }
-
-            .image-container img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Cover the area without distortion */
-                transition: transform 0.3s; /* Transition for scaling effect */
-            }
-
-            .image-container img:hover {
-                transform: scale(1.1); /* Scale effect on hover */
-            }
-
-            /* Responsive Grid */
-            @media (max-width: 899px) {
-                .image-grid {
-                    grid-template-columns: repeat(2, 1fr); /* Two images per row */
-                }
-            }
-
-            @media (max-width: 600px) {
-                .image-grid {
-                    grid-template-columns: 1fr; /* One image per row */
-                }
-
-                .image-container {
-                    height: 200px; /* Adjusted height for smaller screens */
-                }
-            }
-
-              .carousel-container {
-                display: flex;
-                overflow: hidden; 
-                position: relative;
-                max-width: 100%; 
-                margin: 20px auto; 
-                border-radius: 8px; 
-                box-shadow: 0 4px 10px #000000; 
-            }
-
-            .carousel-wrapper {
-                display: flex;
-                transition: transform 0.5s ease; 
-            }
-
-            .carousel-item {
-                flex: 0 0 33.3333%; 
-                max-width: 33.3333%; 
-                padding: 0;
-                position: relative; 
-            }
-
-            .carousel-item img {
-                width: 100%;
-                height: 480px; 
-                object-fit: cover; 
-                border-radius: 8px; 
-            }
-
-/* Styling for small screens */
-@media (max-width: 600px) {
-    .carousel-container {
+<style>
+    * {
+        margin: 0;
         padding: 0;
-        overflow-x: scroll;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        background-color: #000;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .container {
+        width: 100%; /* Adjust container width to full width for mobile */
+        max-width: 1209px;
+        margin: 20px auto;
+        padding: 0 15px; /* Add padding to container for smaller screens */
+    }
+
+    #academic-warriors {
+        width: 100%; 
+        max-width: 1200px;
+        margin: 20px auto; 
+        padding: 20px; 
+        background-color: rgba(240, 248, 255, 0.9); 
+        border-radius: 8px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome {
+        background-color: #e0f7fa;
+        padding: 20px;
+        margin: 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgb(119, 0, 0);
+        font-size: 1.2rem;
+        color: #333;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+    }
+
+    .datetime {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .module {
+        background-color: #f0f0f0;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px #000;
+        transition: transform 0.3s ease;
+    }
+
+    .module:hover {
+        transform: translateY(-5px);
+    }
+
+    .module h2 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .module p {
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    /* Centered button container */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* Button styles */
+    .docsend-btn,
+    .preview-btn {
+        padding: 10px 20px;
+        margin: 0 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #6b4242;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        border: 2px solid #eccece;
+        cursor: pointer;
+    }
+
+    /* Button hover effect */
+    .docsend-btn:hover,
+    .preview-btn:hover {
+        background-color: #555;
+    }
+
+    footer {
+        background-color: #000000;
+        color: white;
+        text-align: center;
+        padding: 33px 0;
+        margin-top: 40px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer nav {
+        margin-top: 29px;
+    }
+
+    footer nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .welcome {
+            font-size: 1rem;
+            min-height: 150px;
+        }
+
+        .module h2 {
+            font-size: 1.5rem;
+        }
+
+        .module p {
+            font-size: 0.9rem;
+        }
+
+        .docsend-btn,
+        .preview-btn {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+        }
+
+        .notification {
+            font-size: 1rem;
+        }
+
+        .datetime {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        .container {
+            width: 95%;
+        }
+
+        .welcome {
+            font-size: 0.9rem;
+            min-height: 120px;
+        }
+
+        .module h2 {
+            font-size: 1.3rem;
+        }
+
+        .module p {
+            font-size: 0.8rem;
+        }
+
+        .docsend-btn,
+        .preview-btn {
+            font-size: 0.85rem;
+            padding: 7px 14px;
+        }
+
+        .notification {
+            font-size: 0.9rem;
+        }
+
+        .datetime {
+            font-size: 1rem;
+        }
+    }
+
+    /* Carousel Adjustments for Small Screens */
+    .carousel-container {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        max-width: 100%;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px #000000;
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease;
     }
 
     .carousel-item {
-        flex: 0 0 100%;
-        padding: 5px;
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+        padding: 0;
+        position: relative;
     }
 
     .carousel-item img {
-        border-radius: 6px;
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        border-radius: 8px;
     }
-}
 
-/* Optional: Hide overflow on the x-axis */
-.carousel-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for webkit browsers */
-}
+    @media (max-width: 600px) {
+        .carousel-container {
+            padding: 0;
+            overflow-x: scroll;
+        }
 
+        .carousel-item {
+            flex: 0 0 100%;
+            padding: 5px;
+        }
 
-        </style>
+        .carousel-item img {
+            border-radius: 6px;
+        }
+    }
+
+    /* Optional: Hide overflow on the x-axis */
+    .carousel-container::-webkit-scrollbar {
+        display: none;
+    }
+
+</style>
+
+    
     </head>
 
 
