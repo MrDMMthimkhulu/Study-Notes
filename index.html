@@ -430,7 +430,11 @@
     }
 
     .carousel-item img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+        object-fit: contain; /* Ensure the entire image is visible */
         border-radius: 6px;
+        max-height: 300px; /* Set a maximum height to prevent images from being too large */
     }
 }
 
@@ -438,6 +442,7 @@
 .carousel-container::-webkit-scrollbar {
     display: none;
 }
+
 
 
         </style>
