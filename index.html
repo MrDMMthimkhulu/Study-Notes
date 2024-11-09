@@ -361,27 +361,35 @@
                 transform: scale(1.1); /* Scale effect on hover */
             }
 
-/* Responsive Grid for Mobile Devices */
+/* Responsive 2x2 Grid for Mobile Devices */
 @media (max-width: 600px) {
     .image-grid {
-        display: flex; /* Use flex layout for horizontal alignment */
-        flex-direction: row-reverse; /* Align images from right to left */
-        gap: 10px;
-        overflow-x: auto; /* Enable horizontal scrolling */
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        gap: 10px; /* Space between images */
         padding: 10px;
-        scrollbar-width: none; /* Hide scrollbar for non-webkit browsers */
     }
 
     .image-container {
-        flex: 0 0 auto; /* Ensure each image maintains its size */
-        width: 90px; /* Set small fixed width */
-        height: 90px; /* Set small fixed height */
+        width: 100%; /* Full width within grid cell */
+        height: 120px; /* Adjust height as needed */
+        border-radius: 5px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
     }
 
-    .image-grid::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for webkit browsers */
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    .image-container img:hover {
+        transform: scale(1.1);
     }
 }
+
 
 
               .carousel-container {
