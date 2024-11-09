@@ -421,24 +421,21 @@
     border-radius: 8px;
 }
 
-/* Styling for small screens (2 items per slide) */
+/* Styling for Small Screens (Phones) */
 @media (max-width: 600px) {
     .carousel-item {
-        flex: 0 0 50%; /* Show 2 items per slide */
+        flex: 0 0 50%;
         max-width: 50%;
         padding: 5px;
     }
 
     .carousel-item img {
-        width: 100%;
-        height: 300px; /* Set a consistent height for all images */
-        object-fit: contain; /* Ensure the entire content of the image is visible */
+        height: 180px; /* Adjust height for smaller screens */
         border-radius: 6px;
-        background-color: #f0f0f0; /* Optional: Add a background color for padding space */
     }
 }
 
-/* Optional: Hide overflow on the x-axis */
+/* Hide Scrollbar */
 .carousel-container::-webkit-scrollbar {
     display: none;
 }
